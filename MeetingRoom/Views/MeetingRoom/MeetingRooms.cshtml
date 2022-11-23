@@ -1,0 +1,93 @@
+﻿@model MeetingRoom.Models.MeetingRoomDet
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MeetingRooms</title>
+</head>
+<body>
+    <div> 
+        <h1 style="color:wheat;">Meeting Rooms</h1>
+        <div class="col-md-12">
+            <div class="dropdown">
+                @*<button class="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false">
+            Dropdown button
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>*@
+                @Html.DropDownListFor(a => a.PlantID, Model.PlantMaster, new { @id = "ddlPlant", @Style = "padding:1%;width:100%", @multiple = "multiple", @class = "form-control btn btn - primary dropdown - toggle" })
+            </div>
+
+        </div>
+        <div class="col-md-12" style="text-align:center;">
+            @if (Model.lstUnit != null)
+                    {
+                        foreach (var item in Model.lstUnit)
+                        {
+
+            <span >
+                <div class="btn-group shadow-0">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach (var itemone in item.lstMeetingDetails)
+
+                    {
+                            <li><a class="dropdown-item" href="#">@itemone.MeetingRoomName</a></li>
+                        }
+
+                        @*<li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>*@
+                    </ul>
+                </div>
+            </span>
+                }
+            }
+            @*<span class="col-md-4">
+                <div class="btn-group shadow-0">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </span>
+            <span class="col-md-4">
+                <div class="btn-group shadow-0">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </span>*@
+
+        </div>
+    </div>
+</body>
+</html>
